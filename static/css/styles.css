@@ -17,6 +17,22 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Sidebar Overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
 /* Animated gradient background */
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -1019,20 +1035,254 @@ h2 i {
     padding: 20px;
 }
 
-/* Responsive */
+/* Responsive Mobile Styles */
 @media (max-width: 992px) {
     .sidebar {
         width: var(--sidebar-width);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
     }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
     .main-wrapper { 
-        margin-left: var(--sidebar-width); 
-        width: calc(100% - var(--sidebar-width));
+        margin-left: 0;
+        width: 100%;
     }
-    .top-navbar .navbar-brand span { display: block; }
+    
+    .top-navbar {
+        padding: 10px 15px;
+    }
+    
+    .top-navbar .navbar-brand span {
+        display: block;
+        font-size: 0.9rem;
+    }
+    
+    .top-navbar .user-name {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 15px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+        margin: 5px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .top-navbar {
+        padding: 8px 10px;
+    }
+    
+    .top-navbar .navbar-logo img {
+        max-height: 30px;
+    }
+    
+    .notification-bell {
+        position: relative;
+        padding: 5px 10px;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+    
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
 }
 
 @media (max-width: 576px) {
     .sidebar {
-        width: var(--sidebar-width);
+        width: 100%;
+        max-width: 280px;
     }
+    
+    .main-content {
+        padding: 8px;
+        margin: 3px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .stat-card p {
+        font-size: 0.7rem;
+    }
+    
+    .stat-card i {
+        font-size: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .form-control {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .table {
+        font-size: 0.8rem;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .top-navbar {
+        padding: 5px 8px;
+    }
+    
+    .top-navbar .navbar-logo {
+        display: none;
+    }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* PWA Install Prompt */
+.pwa-install-prompt {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--secondary);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pwa-install-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+
+.pwa-install-content i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* PWA Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.splash-screen img {
+    max-width: 150px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }

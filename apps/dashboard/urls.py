@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import DashboardViewSet, org_chart_data, reports_structure
-from .web_views import dashboard_view, logout_view, org_chart_view, employees_list_view, custom_login_view, worklog_view, attendance_checkin, attendance_checkout, candidate_apply_view, candidate_login_view, candidate_test_view, candidate_logout_view, profile_view, chatbot_api, chatbot_history, schedule_view, reports_view
+from .web_views import dashboard_view, logout_view, org_chart_view, employees_list_view, custom_login_view, worklog_view, attendance_checkin, attendance_checkout, candidate_apply_view, candidate_login_view, candidate_test_view, candidate_logout_view, profile_view, chatbot_api, chatbot_history, schedule_view, reports_view, homepage_view, download_app_view, about_us_view, contact_view, terms_view, privacy_view, ios_install_view
 from django.contrib.auth import views as auth_views
 from django.views.generic import RedirectView
 
@@ -9,12 +9,19 @@ router = DefaultRouter()
 router.register(r'api', DashboardViewSet, basename='dashboard')
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/login/', permanent=False), name='home'),
+    path('', homepage_view, name='home'),
+    path('download/', download_app_view, name='download-app'),
+    path('about/', about_us_view, name='about-us'),
+    path('contact/', contact_view, name='contact'),
+    path('terms/', terms_view, name='terms'),
+    path('privacy/', privacy_view, name='privacy'),
+    path('ios/', ios_install_view, name='ios-install'),
     path('api/', include(router.urls)),
     path('api/org-chart/', org_chart_data, name='org-chart-data'),
     path('api/reports-structure/', reports_structure, name='reports_structure'),
     
     # Web views
+    path('app/', RedirectView.as_view(url='/login/', permanent=False), name='app-home'),
     path('dashboard/', dashboard_view, name='dashboard'),
     path('profile/', profile_view, name='profile'),
     path('login/', custom_login_view, name='login'),

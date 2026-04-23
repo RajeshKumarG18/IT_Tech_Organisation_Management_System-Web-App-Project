@@ -1,0 +1,16 @@
+{
+  "appId": "com.itorg.management",
+  "appName": "IT Tech Organisation Management System",
+  "webDir": "../",
+  "server": {
+    " iosScheme": "https"
+  },
+  "ios": {
+    "bundleId": "com.itorg.management",
+    "build": {
+      "scheme": "App",
+      "entitlements": ""
+    }
+  },
+  "plugins": {}
+}

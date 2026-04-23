@@ -3338,3 +3338,331 @@ INFO 2026-04-21 14:03:48,585 basehttp "GET /worklog/ HTTP/1.1" 302 0
 INFO 2026-04-21 14:05:50,789 basehttp "GET /worklog/ HTTP/1.1" 200 28276
 INFO 2026-04-21 14:05:50,850 basehttp "GET /media/organization_logos/Indica_Software_logo_6Tr60xY.jpeg HTTP/1.1" 304 0
 INFO 2026-04-21 14:05:50,852 basehttp "GET /media/attendance/photos/checkin.jpg HTTP/1.1" 304 0
+INFO 2026-04-22 11:20:11,171 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:20:15,648 basehttp "GET / HTTP/1.1" 302 0
+INFO 2026-04-22 11:20:15,830 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2026-04-22 11:20:16,002 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:20:16,636 basehttp "GET /media/organization_logos/Indica_Software_logo_6Tr60xY.jpeg HTTP/1.1" 304 0
+INFO 2026-04-22 11:20:16,769 basehttp "GET /static/css/styles.css HTTP/1.1" 200 22097
+INFO 2026-04-22 11:20:17,861 basehttp "GET /static/manifest.json HTTP/1.1" 200 2944
+INFO 2026-04-22 11:20:18,494 basehttp "GET /static/sw.js HTTP/1.1" 200 3978
+INFO 2026-04-22 11:20:18,508 basehttp "GET /media/organization_logos/Indica_Software_logo.jpeg HTTP/1.1" 304 0
+INFO 2026-04-22 11:20:18,550 basehttp "GET /static/icons/icon-144x144.png HTTP/1.1" 200 19133
+INFO 2026-04-22 11:20:18,684 basehttp "GET / HTTP/1.1" 302 0
+INFO 2026-04-22 11:20:18,704 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2026-04-22 11:20:18,710 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:20:18,767 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2026-04-22 11:20:18,787 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+WARNING 2026-04-22 11:20:18,840 log Not Found: /manifest.json
+WARNING 2026-04-22 11:20:18,847 basehttp "GET /manifest.json HTTP/1.1" 404 10312
+INFO 2026-04-22 11:20:18,854 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:20:39,036 basehttp "GET /static/icons/icon-192x192.png HTTP/1.1" 200 29627
+INFO 2026-04-22 11:20:39,039 basehttp "GET /static/icons/icon-152x152.png HTTP/1.1" 200 20860
+INFO 2026-04-22 11:20:39,040 basehttp "GET /static/icons/icon-128x128.png HTTP/1.1" 200 15984
+INFO 2026-04-22 11:20:39,042 basehttp "GET /static/icons/icon-384x384.png HTTP/1.1" 200 81303
+INFO 2026-04-22 11:20:39,069 basehttp "GET /static/icons/icon-512x512.png HTTP/1.1" 200 122418
+INFO 2026-04-22 11:20:39,070 basehttp "GET /static/icons/icon-72x72.png HTTP/1.1" 200 6152
+INFO 2026-04-22 11:20:39,080 basehttp "GET /static/icons/icon-96x96.png HTTP/1.1" 200 10105
+INFO 2026-04-22 11:20:39,095 basehttp "GET /static/icons/icon-144x144.png HTTP/1.1" 304 0
+WARNING 2026-04-22 11:20:39,110 basehttp "GET /static/icons/dashboard.png HTTP/1.1" 404 1871
+WARNING 2026-04-22 11:20:39,110 basehttp "GET /static/screenshots/dashboard.png HTTP/1.1" 404 1889
+INFO 2026-04-22 11:30:25,031 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py changed, reloading.
+INFO 2026-04-22 11:30:25,774 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:30:44,083 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 11:30:44,554 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:31:26,942 autoreload Watching for file changes with StatReloader
+ERROR 2026-04-22 11:31:29,589 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dell/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py", line 32, in homepage_view
+    return render(request, 'homepage.html', context)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 197, in compile_nodelist
+    nodelist = parser.parse()
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 578, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 770: 'static'. Did you forget to register or load this tag?
+ERROR 2026-04-22 11:31:29,592 basehttp "GET / HTTP/1.1" 500 154269
+INFO 2026-04-22 11:31:29,593 basehttp - Broken pipe from ('127.0.0.1', 56380)
+ERROR 2026-04-22 11:31:33,027 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dell/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py", line 32, in homepage_view
+    return render(request, 'homepage.html', context)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 197, in compile_nodelist
+    nodelist = parser.parse()
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/dell/.local/lib/python3.10/site-packages/django/template/base.py", line 578, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 770: 'static'. Did you forget to register or load this tag?
+ERROR 2026-04-22 11:31:33,028 basehttp "GET / HTTP/1.1" 500 154269
+INFO 2026-04-22 11:31:46,522 basehttp "GET / HTTP/1.1" 200 26009
+INFO 2026-04-22 11:31:49,705 basehttp "GET /download/ HTTP/1.1" 200 9016
+INFO 2026-04-22 11:32:16,631 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:32:45,249 basehttp "GET / HTTP/1.1" 200 26009
+INFO 2026-04-22 11:33:03,488 basehttp "GET /download/ HTTP/1.1" 200 9016
+INFO 2026-04-22 11:33:08,992 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:33:09,033 basehttp "GET /static/css/styles.css HTTP/1.1" 304 0
+INFO 2026-04-22 11:33:09,482 basehttp "GET /static/manifest.json HTTP/1.1" 304 0
+INFO 2026-04-22 11:33:09,503 basehttp "GET /static/sw.js HTTP/1.1" 304 0
+INFO 2026-04-22 11:33:09,518 basehttp "GET /static/icons/icon-144x144.png HTTP/1.1" 304 0
+INFO 2026-04-22 11:33:09,588 basehttp "GET / HTTP/1.1" 200 26009
+INFO 2026-04-22 11:33:09,596 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2026-04-22 11:33:09,615 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+WARNING 2026-04-22 11:33:09,642 log Not Found: /manifest.json
+WARNING 2026-04-22 11:33:09,645 basehttp "GET /manifest.json HTTP/1.1" 404 10829
+INFO 2026-04-22 11:33:09,654 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:33:16,321 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:33:16,785 basehttp "GET /static/sw.js HTTP/1.1" 304 0
+INFO 2026-04-22 11:33:16,841 basehttp "GET /login/ HTTP/1.1" 302 0
+INFO 2026-04-22 11:33:16,848 basehttp "GET / HTTP/1.1" 200 26009
+INFO 2026-04-22 11:33:16,849 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+WARNING 2026-04-22 11:33:16,875 log Not Found: /manifest.json
+WARNING 2026-04-22 11:33:16,877 basehttp "GET /manifest.json HTTP/1.1" 404 10829
+INFO 2026-04-22 11:33:16,892 basehttp "GET /dashboard/ HTTP/1.1" 200 60726
+INFO 2026-04-22 11:48:23,110 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py changed, reloading.
+INFO 2026-04-22 11:48:27,529 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:52:47,452 basehttp "GET / HTTP/1.1" 200 26097
+INFO 2026-04-22 11:52:47,954 basehttp "GET /media/organization_logos/Indica_Software_logo_6Tr60xY.jpeg HTTP/1.1" 200 2659
+WARNING 2026-04-22 11:52:49,808 log Not Found: /favicon.ico
+WARNING 2026-04-22 11:52:49,809 basehttp "GET /favicon.ico HTTP/1.1" 404 10823
+WARNING 2026-04-22 11:53:01,587 log Not Found: /IT_Org_Management.apk
+WARNING 2026-04-22 11:53:01,591 basehttp "GET /IT_Org_Management.apk HTTP/1.1" 404 10853
+WARNING 2026-04-22 11:53:08,971 log Not Found: /IT_Org_Management.apk
+WARNING 2026-04-22 11:53:08,972 basehttp "GET /IT_Org_Management.apk HTTP/1.1" 404 10853
+WARNING 2026-04-22 11:53:23,640 log Not Found: /IT_Org_Management.apk
+WARNING 2026-04-22 11:53:23,641 basehttp "GET /IT_Org_Management.apk HTTP/1.1" 404 10853
+INFO 2026-04-22 11:54:32,030 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py changed, reloading.
+INFO 2026-04-22 11:54:38,708 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:56:55,938 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 11:57:07,783 basehttp "GET / HTTP/1.1" 200 26013
+INFO 2026-04-22 11:57:12,514 basehttp "GET /download/ HTTP/1.1" 200 396636
+INFO 2026-04-22 11:57:14,352 basehttp "HEAD /download/ HTTP/1.1" 200 0
+INFO 2026-04-22 11:57:18,250 basehttp "GET /download/ HTTP/1.1" 200 396636
+WARNING 2026-04-22 12:06:23,322 log Not Found: /favicon.ico
+WARNING 2026-04-22 12:06:23,382 basehttp "GET /favicon.ico HTTP/1.1" 404 10823
+INFO 2026-04-22 12:26:32,659 basehttp "GET / HTTP/1.1" 200 26013
+INFO 2026-04-22 12:26:35,945 basehttp "GET / HTTP/1.1" 200 26013
+INFO 2026-04-22 12:26:38,049 basehttp "GET /download/ HTTP/1.1" 200 257684
+INFO 2026-04-22 12:29:33,731 basehttp "GET / HTTP/1.1" 200 25992
+INFO 2026-04-22 12:33:10,102 basehttp "GET / HTTP/1.1" 200 27687
+INFO 2026-04-22 12:34:15,222 basehttp "GET / HTTP/1.1" 200 27924
+INFO 2026-04-22 12:38:40,615 basehttp "GET / HTTP/1.1" 200 28475
+INFO 2026-04-22 12:38:45,636 basehttp "GET / HTTP/1.1" 200 28475
+INFO 2026-04-22 12:39:01,924 basehttp "GET / HTTP/1.1" 200 28475
+INFO 2026-04-22 12:40:47,912 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py changed, reloading.
+INFO 2026-04-22 12:40:51,271 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:41:06,840 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 12:41:07,504 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:41:40,613 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 12:41:41,406 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:43:33,030 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 12:43:33,058 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 12:43:33,078 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-22 12:43:33,105 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 12:45:25,518 basehttp "GET / HTTP/1.1" 200 28503
+INFO 2026-04-22 12:45:31,289 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 12:45:39,279 basehttp "GET / HTTP/1.1" 200 28503
+INFO 2026-04-22 12:45:44,341 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 12:45:58,796 basehttp "GET / HTTP/1.1" 200 28503
+INFO 2026-04-22 12:46:03,244 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-22 12:46:15,147 basehttp "GET / HTTP/1.1" 200 28503
+INFO 2026-04-22 12:46:21,473 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 12:53:18,276 basehttp "GET / HTTP/1.1" 200 28653
+INFO 2026-04-22 12:56:29,087 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 12:56:32,145 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:56:49,047 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/web_views.py changed, reloading.
+INFO 2026-04-22 12:56:49,713 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:56:54,520 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 12:56:55,247 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:57:01,733 autoreload /home/dell/Documents/IT Tech Organisation Management System/apps/dashboard/urls.py changed, reloading.
+INFO 2026-04-22 12:57:06,276 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 12:57:14,198 basehttp "GET /ios/ HTTP/1.1" 200 8259
+INFO 2026-04-22 12:57:33,258 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 12:57:40,181 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 12:57:50,461 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 12:57:56,095 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 12:58:50,484 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:00:33,873 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:00:40,491 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:00:46,169 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:03:48,401 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:03:57,390 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:03:57,445 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 13:03:57,482 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 13:03:57,507 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-22 13:03:57,537 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 13:03:57,552 basehttp "GET /ios/ HTTP/1.1" 200 8259
+INFO 2026-04-22 13:03:57,618 basehttp "GET /download/ HTTP/1.1" 200 257684
+INFO 2026-04-22 13:06:45,568 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 13:07:11,151 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 13:10:16,186 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 13:11:29,897 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:11:49,346 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:13:06,454 basehttp "GET / HTTP/1.1" 200 31348
+INFO 2026-04-22 13:30:22,733 basehttp "GET /download/ HTTP/1.1" 200 257684
+INFO 2026-04-22 13:34:15,205 basehttp "GET / HTTP/1.1" 200 31334
+INFO 2026-04-22 13:34:15,236 basehttp "GET /download/ HTTP/1.1" 200 257684
+INFO 2026-04-22 13:34:15,314 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 13:34:15,374 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 13:34:15,395 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-22 13:34:15,431 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 13:34:15,461 basehttp "GET /ios/ HTTP/1.1" 200 8259
+INFO 2026-04-22 13:42:15,890 basehttp "GET / HTTP/1.1" 200 31334
+INFO 2026-04-22 13:42:15,908 basehttp "GET /download/ HTTP/1.1" 200 256062
+INFO 2026-04-22 13:42:15,942 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 13:42:15,974 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 13:44:34,415 autoreload Watching for file changes with StatReloader
+INFO 2026-04-22 13:44:47,594 basehttp "GET / HTTP/1.1" 200 31334
+INFO 2026-04-22 13:51:20,164 basehttp "GET / HTTP/1.1" 200 31593
+INFO 2026-04-22 13:52:07,058 basehttp "GET / HTTP/1.1" 200 31593
+INFO 2026-04-22 13:52:07,930 basehttp "GET /static/favicon.ico HTTP/1.1" 200 418
+INFO 2026-04-22 13:52:07,958 basehttp "GET /static/icons/favicon-32x32.png HTTP/1.1" 200 1030
+INFO 2026-04-22 13:57:17,380 basehttp "GET / HTTP/1.1" 200 31593
+INFO 2026-04-22 13:57:17,408 basehttp "GET /download/ HTTP/1.1" 200 256062
+INFO 2026-04-22 13:57:17,456 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 13:57:17,490 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 13:57:17,512 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-22 13:57:17,547 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-22 13:57:17,577 basehttp "GET /ios/ HTTP/1.1" 200 8259
+INFO 2026-04-22 14:07:46,361 basehttp "GET / HTTP/1.1" 200 31593
+INFO 2026-04-22 14:07:46,387 basehttp "GET /download/ HTTP/1.1" 200 256062
+INFO 2026-04-22 14:07:46,405 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-22 14:07:46,422 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-22 14:07:46,510 basehttp "GET /login/ HTTP/1.1" 200 16336
+INFO 2026-04-22 14:30:58,436 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-22 14:30:58,540 basehttp "GET /media/organization_logos/Indica_Software_logo_6Tr60xY.jpeg HTTP/1.1" 304 0
+INFO 2026-04-22 14:30:59,168 basehttp "GET /static/favicon.ico HTTP/1.1" 304 0
+INFO 2026-04-22 14:30:59,183 basehttp "GET /static/icons/favicon-32x32.png HTTP/1.1" 304 0
+INFO 2026-04-22 14:31:02,666 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-22 14:31:06,567 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-22 14:31:21,774 basehttp "GET /download/ HTTP/1.1" 200 256062
+INFO 2026-04-22 14:36:23,474 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-22 14:36:24,104 basehttp "GET /static/favicon.ico HTTP/1.1" 304 0
+INFO 2026-04-22 14:36:24,111 basehttp "GET /static/icons/favicon-32x32.png HTTP/1.1" 304 0
+INFO 2026-04-22 14:39:59,730 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-22 14:40:02,080 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-23 04:38:50,844 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-23 04:43:37,968 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-23 04:43:38,071 basehttp "GET /media/organization_logos/Indica_Software_logo_6Tr60xY.jpeg HTTP/1.1" 304 0
+INFO 2026-04-23 04:43:38,931 basehttp "GET /static/favicon.ico HTTP/1.1" 304 0
+INFO 2026-04-23 04:43:38,949 basehttp "GET /static/icons/favicon-32x32.png HTTP/1.1" 304 0
+INFO 2026-04-23 04:43:43,043 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-23 04:43:56,483 basehttp "GET /download/ HTTP/1.1" 200 259152
+INFO 2026-04-23 05:00:17,298 basehttp "GET / HTTP/1.1" 200 33370
+INFO 2026-04-23 05:19:18,830 autoreload Watching for file changes with StatReloader
+INFO 2026-04-23 05:19:22,773 basehttp "GET / HTTP/1.1" 200 33255
+INFO 2026-04-23 05:19:59,954 basehttp "GET / HTTP/1.1" 200 33255
+INFO 2026-04-23 05:20:04,458 basehttp "GET / HTTP/1.1" 200 33255
+INFO 2026-04-23 05:20:22,300 basehttp "GET / HTTP/1.1" 200 33255
+INFO 2026-04-23 05:21:28,476 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:22:30,368 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:25:08,743 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:30:12,023 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:35:43,364 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:37:53,567 basehttp "GET / HTTP/1.1" 200 33392
+WARNING 2026-04-23 05:37:53,632 log Not Found: /about-us/
+WARNING 2026-04-23 05:37:53,632 basehttp "GET /about-us/ HTTP/1.1" 404 12097
+INFO 2026-04-23 05:37:53,654 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-23 05:37:53,673 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-23 05:37:53,694 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-23 05:37:53,742 basehttp "GET /media/apk/IT_Tech_Org_Release.apk HTTP/1.1" 200 264784
+INFO 2026-04-23 05:38:06,183 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 05:38:25,156 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 05:38:25,180 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-23 05:38:25,205 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-23 05:38:25,245 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-23 05:38:29,825 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:38:29,844 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 05:38:29,863 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-23 05:38:29,880 basehttp "GET /terms/ HTTP/1.1" 200 6619
+INFO 2026-04-23 05:38:29,899 basehttp "GET /privacy/ HTTP/1.1" 200 8252
+INFO 2026-04-23 05:38:29,914 basehttp "GET /download/ HTTP/1.1" 200 259152
+INFO 2026-04-23 05:38:29,937 basehttp "GET /login/ HTTP/1.1" 200 17009
+INFO 2026-04-23 05:38:49,717 basehttp "GET / HTTP/1.1" 200 33392
+INFO 2026-04-23 05:40:19,430 basehttp "GET / HTTP/1.1" 200 33002
+INFO 2026-04-23 05:41:06,734 basehttp "GET / HTTP/1.1" 200 33002
+INFO 2026-04-23 05:41:09,964 basehttp "GET / HTTP/1.1" 200 33002
+INFO 2026-04-23 05:43:57,991 basehttp "GET / HTTP/1.1" 200 33002
+INFO 2026-04-23 05:43:59,439 basehttp "GET / HTTP/1.1" 200 33002
+INFO 2026-04-23 05:46:29,816 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 05:47:56,094 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 05:56:20,978 autoreload /home/dell/Documents/IT Tech Organisation Management System/core/settings.py changed, reloading.
+INFO 2026-04-23 05:56:21,588 autoreload Watching for file changes with StatReloader
+INFO 2026-04-23 05:56:41,065 autoreload /home/dell/Documents/IT Tech Organisation Management System/core/settings.py changed, reloading.
+INFO 2026-04-23 05:56:41,696 autoreload Watching for file changes with StatReloader
+INFO 2026-04-23 06:26:53,778 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:26:54,500 basehttp "GET /static/favicon.ico HTTP/1.1" 304 0
+INFO 2026-04-23 06:26:54,508 basehttp "GET /static/icons/favicon-32x32.png HTTP/1.1" 304 0
+INFO 2026-04-23 06:26:55,975 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:31:12,689 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:36:12,053 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 06:36:15,513 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:36:43,981 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 06:36:56,345 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:37:14,126 basehttp "GET /contact/ HTTP/1.1" 200 7953
+INFO 2026-04-23 06:37:25,884 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:44:48,399 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:45:07,495 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:45:13,218 basehttp "GET /media/apk/IT_Tech_Org_Release.apk HTTP/1.1" 200 264784
+INFO 2026-04-23 06:47:07,972 basehttp "GET /about/ HTTP/1.1" 200 5617
+INFO 2026-04-23 06:47:12,517 basehttp "GET / HTTP/1.1" 200 33034
+INFO 2026-04-23 06:48:06,936 basehttp "GET / HTTP/1.1" 200 33034

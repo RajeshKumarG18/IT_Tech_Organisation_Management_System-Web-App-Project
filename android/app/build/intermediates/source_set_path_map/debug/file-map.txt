@@ -1,0 +1,6 @@
+com.itorg.management.app-resValues-0 /home/dell/Documents/IT Tech Organisation Management System/android/app/build/generated/res/resValues/debug
+com.itorg.management.app-packageDebugResources-1 /home/dell/Documents/IT Tech Organisation Management System/android/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.itorg.management.app-packageDebugResources-2 /home/dell/Documents/IT Tech Organisation Management System/android/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.itorg.management.app-merged_res-3 /home/dell/Documents/IT Tech Organisation Management System/android/app/build/intermediates/merged_res/debug
+com.itorg.management.app-debug-4 /home/dell/Documents/IT Tech Organisation Management System/android/app/src/debug/res
+com.itorg.management.app-main-5 /home/dell/Documents/IT Tech Organisation Management System/android/app/src/main/res

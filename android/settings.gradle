@@ -1,0 +1,2 @@
+rootProject.name = 'ITOrgManagement'
+include ':app'

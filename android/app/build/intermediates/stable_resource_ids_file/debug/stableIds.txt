@@ -1,0 +1,11 @@
+com.itorg.management:style/AppTheme = 0x7f050000
+com.itorg.management:string/app_name = 0x7f040000
+com.itorg.management:mipmap/ic_launcher = 0x7f030000
+com.itorg.management:drawable/ic_launcher = 0x7f020000
+com.itorg.management:color/secondary = 0x7f010003
+com.itorg.management:color/primary_dark = 0x7f010002
+com.itorg.management:color/white = 0x7f010004
+com.itorg.management:mipmap/ic_launcher_round = 0x7f030001
+com.itorg.management:color/primary = 0x7f010001
+com.itorg.management:drawable/ic_launcher_round = 0x7f020001
+com.itorg.management:color/black = 0x7f010000

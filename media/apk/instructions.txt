@@ -1,0 +1,123 @@
+# IT Tech Organisation Management System
+## Google Play Store & App Store Submission Instructions
+
+## ========================================
+## GOOGLE PLAY STORE ($25 one-time)
+## ========================================
+
+### Step 1: Create Google Developer Account
+1. Go to: https://play.google.com/console
+2. Sign in with Google account
+3. Pay $25 registration fee
+4. Verify identity
+
+### Step 2: Upload APK
+1. Sign in to Play Console
+2. All Apps → Create App
+3. Select "Android App"
+4. Fill Default Title: "IT Tech Organisation Management System"
+
+### Step 3: Fill App Details
+- **Short Description** (30 chars):
+  "Professional IT Org Management System"
+  
+- **Full Description** (4000 chars):
+  "IT Tech Organisation Management System is a comprehensive digital solution designed to streamline and automate organizational operations. Manage employees, departments, roles, attendance, work logs, events, and more - all in one unified platform."
+  
+- **What's New** (500 chars):
+  "Initial release with all core features"
+
+### Step 4: Upload Graphic Assets
+Create these mandatory images:
+
+1. **Icon** - 512x512 PNG
+2. **Feature Graphic** - 1024x500 PNG (landscape)
+3. **Phone Screenshot** - 1080x1920 PNG (min 2, max 8)
+4. **7-inch Screenshot** - 1920x1080 PNG (optional)
+
+### Step 5: Content Rating
+1. Go to Content rating
+2. Click "Complete rating questionnaire"
+3. Select:
+   - None of the content applies
+4. Save
+
+### Step 6: Pricing & Distribution
+- Select: Free
+- Countries/Regions: Select all
+
+### Step 7: Publish
+- Review → Publish
+
+---
+
+## ========================================
+## APPLE APP STORE ($99/year)
+## ========================================
+
+### Step 1: Create Apple Developer Account
+1. Go to: https://developer.apple.com/programs/
+2. Enroll in Apple Developer Program
+3. Pay $99/year
+
+### Step 2: Build iOS App
+The current APK is for Android. For iOS:
+- Use Xcode on Mac
+- Or use cloud service like Codemagic/Bitrise
+
+### Step 3: Create App Listing
+1. Go to: https://appstoreconnect.apple.com
+2. My Apps → + → New App
+3. Fill:
+   - Platforms: iOS
+   - Name: IT Tech Organisation
+   - Primary Language: English
+   - Bundle ID: com.itorg.management
+   - SKU: IT-Tech-Org-1
+
+### Step 4: Upload Build
+- Use Xcode or Transporter app
+- Upload the iOS build
+
+### Step 5: Submit for Review
+- Provide demo account credentials
+- Submit
+
+---
+
+## CURRENT FILES:
+
+| File | Path |
+|------|------|
+| Debug APK | media/apk/IT_Org_Management.apk |
+| Release APK (unsigned) | android/app/build/outputs/apk/release/app-release-unsigned.apk |
+| Full Source | android/ |
+
+---
+
+## TO SIGN THE RELEASE APK FOR PLAY STORE:
+
+1. Create keystore (if not exists):
+keytool -genkeypair -v -storetype PKCS12 -keystore it_tech_org.jks -alias it_tech_org -keyalg RSA -keysize 2048 -validity 10000
+
+2. Sign the APK:
+jarsigner -keystore it_tech_org.jks -storepass YOUR_PASSWORD android/app/build/outputs/apk/release/app-release-unsigned.apk it_tech_org
+
+3. Align the APK:
+$ANDROID_HOME/build-tools/34.0.0/zipalign -f 4 android/app/build/outputs/apk/release/app-release-unsigned.apk IT_Tech_Org_Release.apk
+
+---
+
+## APP DETAILS FOR STORES:
+
+App Name: IT Tech Organisation Management System
+Package: com.itorg.management
+Version: 1.0.0 (Version Code: 1)
+
+Category: Business
+
+Description:
+Professional IT Organization Management System with comprehensive features for managing organizational structure, employees, roles, departments, attendance, work logs, events, and more.
+
+Keywords:
+IT Org, Organisation, Management, Employee, HR, Department, Attendance, Work Log, Event, Schedule, Dashboard, Org Chart

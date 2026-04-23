@@ -1,0 +1,20 @@
+# Android
+android/.gradle/
+android/build/
+android/gradle-8.2/
+android/gradle.zip
+*.apk
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.log
+
+# Node
+node_modules/
+
+# Env
+.env

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="primary">#FF6B00</color>
+    <color name="primary_dark">#E55A00</color>
+    <color name="secondary">#0B1F3A</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">IT Org</string>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/secondary</item>
+        <item name="android:colorPrimaryDark">@color/secondary</item>
+        <item name="android:colorAccent">@color/primary</item>
+        <item name="android:windowBackground">@color/secondary</item>
+        <item name="android:statusBarColor">@color/secondary</item>
+        <item name="android:navigationBarColor">@color/secondary</item>
+    </style>
+</resources>

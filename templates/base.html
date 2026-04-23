@@ -3,12 +3,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="{{ org_settings.secondary_color|default:"#0B1F3A" }}">
-    {% if org_settings.favicon %}
-    <link rel="icon" type="image/x-icon" href="{{ org_settings.favicon.url }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ org_settings.favicon.url }}">
-    {% endif %}
+    <meta name="description" content="Professional IT Organization Management System">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IT Tech Organisation Management">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="IT Tech Organisation">
+    <meta name="msapplication-TileColor" content="#0B1F3A">
+    
+    <!-- Favicon - Multiple formats for cross-browser support -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'icons/favicon-48x48.png' %}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{% static 'icons/favicon-64x64.png' %}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{% static 'icons/favicon-128x128.png' %}">
+    <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'icons/favicon-256x256.png' %}">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <link rel="apple-touch-icon" href="{% static 'icons/icon-192x192.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="96x96" href="{% static 'icons/icon-96x96.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="192x192" href="{% static 'icons/icon-192x192.png' %}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'icons/icon-512x512.png' %}">
     <title>{% block title %}{{ organization_name|default:"IT Organization Management System" }}{% endblock %}</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -70,12 +90,18 @@
             </nav>
             <form id="logout-form" method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-            </form>
+</form>
         </nav>
+        
+        <!-- Sidebar Overlay for Mobile -->
+        <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
         
         <!-- Main Content -->
         <div class="main-wrapper">
             <nav class="top-navbar">
+                <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="navbar-brand">
                     <div class="navbar-logo">
                         {% if org_settings.logo %}
@@ -260,6 +286,28 @@
             messagesDiv.appendChild(errorMsg);
         });
     }
+    
+    function toggleSidebar() {
+        const sidebar = document.getElementById('mainSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        if (sidebar) {
+            sidebar.classList.toggle('open');
+            if (overlay) {
+                overlay.classList.toggle('show');
+            }
+        }
+    }
+    
+    function closeSidebar() {
+        const sidebar = document.getElementById('mainSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        if (sidebar) {
+            sidebar.classList.remove('open');
+        }
+        if (overlay) {
+            overlay.classList.remove('show');
+        }
+    }
     </script>
     {% block extra_js %}{% endblock %}
     
@@ -282,5 +330,59 @@
             <button onclick="sendChatBotMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
+
+    <!-- PWA Install Prompt -->
+    <div class="pwa-install-prompt" id="pwaInstallPrompt" style="display: none;">
+        <div class="pwa-install-content">
+            <i class="fas fa-download"></i>
+            <span>Install IT Org for better experience</span>
+            <button id="pwaInstallBtn" class="btn btn-sm btn-warning">Install</button>
+            <button class="btn btn-sm btn-link" onclick="dismissPwaInstall()">Later</button>
+        </div>
+    </div>
+
+    <script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('{% static "sw.js" %}')
+                .then(function(registration) {
+                    console.log('SW registered:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('SW registration failed:', error);
+                });
+        });
+    }
+
+    // PWA Install Prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('pwaInstallPrompt').style.display = 'flex';
+    });
+
+    document.getElementById('pwaInstallBtn').addEventListener('click', async function() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('PWA installed');
+            }
+            deferredPrompt = null;
+            document.getElementById('pwaInstallPrompt').style.display = 'none';
+        }
+    });
+
+    function dismissPwaInstall() {
+        document.getElementById('pwaInstallPrompt').style.display = 'none';
+    }
+
+    window.addEventListener('appinstalled', function() {
+        console.log('PWA installed successfully');
+        document.getElementById('pwaInstallPrompt').style.display = 'none';
+    });
+    </script>
 </body>
 </html>

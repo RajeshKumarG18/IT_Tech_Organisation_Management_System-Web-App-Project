@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.shortcuts import redirect
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse, Http404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
@@ -14,11 +14,91 @@ from django.db.models import Count
 from django.utils import timezone
 from django.conf import settings
 
-from apps.employees.models import Employee, Candidate, AptitudeTest, TestAttempt, LeaveRequest, Announcement, Event, Project, ChatBotConversation
+from apps.employees.models import Employee, Candidate, AptitudeTest, TestAttempt, LeaveRequest, Announcement, Event, Project, ChatBotConversation, OrganizationSettings
 from apps.departments.models import Department
 from apps.roles.models import Role
 from apps.accounts.models import OrganizationLevel
 from datetime import timedelta
+
+
+def homepage_view(request):
+    """Snaptube-style homepage for app download"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+        'organization_short_name': settings.organization_short_name,
+    }
+    return render(request, 'homepage.html', context)
+
+
+def about_us_view(request):
+    """About Us page"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+    }
+    return render(request, 'about.html', context)
+
+
+def contact_view(request):
+    """Contact page"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+    }
+    return render(request, 'contact.html', context)
+
+
+def terms_view(request):
+    """Terms of Service page"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+    }
+    return render(request, 'terms.html', context)
+
+
+def privacy_view(request):
+    """Privacy Policy page"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+    }
+    return render(request, 'privacy.html', context)
+
+
+def ios_install_view(request):
+    """iOS Installation page"""
+    settings = OrganizationSettings.get_settings()
+    context = {
+        'org_settings': settings,
+        'organization_name': settings.organization_name,
+        'organization_short_name': settings.organization_short_name,
+    }
+    return render(request, 'ios-install.html', context)
+
+
+def download_app_view(request):
+    """Download the APK file"""
+    from django.http import FileResponse, Http404
+    import os
+    
+    apk_path = os.path.join(settings.BASE_DIR, 'media', 'apk', 'IT_Org_Management.apk')
+    
+    if os.path.exists(apk_path):
+        response = FileResponse(
+            open(apk_path, 'rb'),
+            content_type='application/vnd.android.package-archive'
+        )
+        response['Content-Disposition'] = 'attachment; filename="IT_Org_Management.apk"'
+        return response
+    else:
+        raise Http404("APK not found")
 
 
 def logout_view(request):

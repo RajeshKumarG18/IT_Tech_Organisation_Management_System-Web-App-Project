@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 # Use custom admin site with ChatBot
 from apps.dashboard.admin_site import site as admin_site
