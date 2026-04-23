@@ -2,22 +2,102 @@
 
 A professional Django-based IT Organization Management System with comprehensive features for managing organizational structure, employees, roles, departments, attendance, work logs, events, and more.
 
+---
+
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Project Structure](#project-structure)
+5. [Installation](#installation)
+6. [Running the Server](#running-the-server)
+7. [Android App](#android-app)
+8. [Default Credentials](#default-credentials)
+9. [API Endpoints](#api-endpoints)
+10. [Web Routes](#web-routes)
+11. [Organization Levels](#organization-levels)
+12. [Database Models](#database-models)
+13. [Environment Variables](#environment-variables)
+14. [Troubleshooting](#troubleshooting)
+15. [License](#license)
+
+---
+
 ## Project Overview
 
-### Architecture
-- **Framework**: Django 5.x (MVT Architecture)
-- **API Layer**: Django Rest Framework (DRF)
-- **Authentication**: JWT (djangorestframework-simplejwt)
-- **Database**: PostgreSQL (with SQLite fallback for development)
-- **UI**: Bootstrap 5 + Chart.js for visualizations
+**IT Tech Organisation Management System** is a complete enterprise management solution designed for IT organizations. It provides:
 
-### Core Technologies
-- Python 3.10+
-- PostgreSQL (production) / SQLite (development)
-- Django Rest Framework
-- SimpleJWT Authentication
-- CORS Headers
-- Chart.js (Dashboard visualizations)
+- Complete employee management with hierarchical structure
+- Role-based access control (6 levels)
+- Attendance tracking with photo capture
+- Work logging system
+- Event and meeting management
+- Interactive dashboard with analytics
+- AI ChatBot for organization queries
+- Organization chart visualization
+
+---
+
+## Features
+
+### Core Features
+- ✅ Django MVT Architecture
+- ✅ Role-based authentication (ADMIN, EXECUTIVE, MANAGER, HR, EMPLOYEE)
+- ✅ Employee management (CRUD operations)
+- ✅ Department hierarchy with parent-child relationships
+- ✅ Role management with 6 organizational levels
+- ✅ Manager-subordinate relationships
+- ✅ JWT Authentication via DRF
+- ✅ REST APIs with Django Rest Framework
+
+### Dashboard Features
+- ✅ Executive dashboard with stats widgets
+- ✅ Orange (#FF6B00) + Dark Blue (#0B1F3A) theme
+- ✅ Interactive charts (Chart.js)
+- ✅ Recent activity feed
+- ✅ Notifications & alerts
+- ✅ Mobile-responsive design
+
+### Organization Management
+- ✅ Organization Settings (name, logo, favicon)
+- ✅ Dynamic organization name updates
+- ✅ Custom admin panel
+
+### ChatBot Features
+- ✅ Organization AI ChatBot
+- ✅ Advanced keyword matching
+- ✅ Security features (blocks sensitive info)
+- ✅ LLM Integration support (OpenAI GPT)
+
+### Attendance & Work Log
+- ✅ Check In with face capture
+- ✅ Check Out with face capture
+- ✅ Camera access for photo capture
+- ✅ 3-step work log workflow
+- ✅ Attendance photo display
+
+### Schedule & Reports
+- ✅ Schedule page with upcoming events
+- ✅ Leave request management
+- ✅ Reports page with analytics
+- ✅ Employee statistics
+- ✅ Meeting records tracking
+
+---
+
+## Tech Stack
+
+| Technology | Description |
+|------------|-------------|
+| Django 5.x | Web Framework |
+| Django Rest Framework | API Layer |
+| SimpleJWT | JWT Authentication |
+| Bootstrap 5 | UI Framework |
+| Chart.js | Dashboard Charts |
+| Python 3.10+ | Programming Language |
+| SQLite | Development Database |
+| PostgreSQL | Production Database |
 
 ---
 
@@ -25,154 +105,138 @@ A professional Django-based IT Organization Management System with comprehensive
 
 ```
 IT Tech Organisation Management System/
-├── core/                          # Core configuration
-│   ├── settings.py              # Django settings
-│   ├── urls.py               # Root URL configuration
-│   └── wsgi.py              # WSGI entry point
-├── apps/                         # Application modules
-│   ├── accounts/            # User authentication & profiles
-│   ├── employees/            # Employee management
-│   ├── roles/               # Role management
-│   ├── departments/         # Department management
-│   └── dashboard/           # Dashboard & web views
+├── core/                          # Django core configuration
+│   ├── settings.py               # Django settings
+│   ├── urls.py                  # Root URL configuration
+│   └── wsgi.py                 # WSGI entry point
+├── apps/                         # Django applications
+│   ├── accounts/               # User authentication & profiles
+│   ├── employees/             # Employee management
+│   ├── roles/                # Role management
+│   ├── departments/           # Department management
+│   └── dashboard/            # Dashboard & web views
 ├── templates/                   # HTML templates
 │   ├── base.html
 │   ├── dashboard/
 │   ├── employees/
 │   └── registration/
-├── static/
-│   └── css/styles.css
-├── media/                      # Uploaded files
-└── requirements.txt
+├── static/                     # Static files (CSS, JS)
+├── media/                     # Uploaded files
+│   ├── organization_logos/     # Organization logos
+│   └── apk/                  # Android APK files
+├── android/                   # Android app project
+├── ios/                       # iOS app project
+├── db.sqlite3               # SQLite database
+├── requirements.txt           # Python dependencies
+└── manage.py                # Django management script
 ```
 
 ---
 
-## Database Schema
+## Installation
 
-### Organization Levels (6 Levels)
-- **Executive Leadership** (CEO, CTO, CIO, CHRO)
-- **Upper Management** (VP, Directors)
-- **Middle Management** (Managers)
-- **Senior Professionals** (Senior Engineers, etc.)
-- **Junior Professionals** (Engineers, etc.)
-- **Support Functions** (HR, Finance, IT Support)
+### Prerequisites
+- Python 3.10 or higher
+- pip (Python package manager)
 
-### Models
+### Step 1: Clone the Project
+```bash
+git clone <repository-url>
+cd "IT Tech Organisation Management System"
+```
 
-#### 1. CustomUser
-| Field | Type | Description |
-|-------|------|-------------|
-| id | UUID | Primary key |
-| username | Char | Unique username |
-| email | Email | Unique email |
-| user_type | Enum | ADMIN, EXECUTIVE, MANAGER, HR, EMPLOYEE |
-| first_name | Char | First name |
-| last_name | Char | Last name |
+### Step 2: Create Virtual Environment
+```bash
+python3 -m venv venv
+```
 
-#### 2. Department
-| Field | Type | Description |
-|-------|------|-------------|
-| id | UUID | Primary key |
-| name | Char | Department name |
-| code | Char | Unique code |
-| description | Text | Description |
-| parent_department | FK | Parent department (self-referential) |
+### Step 3: Activate Virtual Environment
 
-#### 3. Role
-| Field | Type | Description |
-|-------|------|-------------|
-| id | UUID | Primary key |
-| title | Char | Role title |
-| level | Enum | 6 organization levels |
-| department | FK | Department |
-| description | Text | Role description |
+**Linux/Mac:**
+```bash
+source venv/bin/activate
+```
 
-#### 4. Employee
-| Field | Type | Description |
-|-------|------|-------------|
-| id | UUID | Primary key |
-| employee_id | Char | Unique employee ID |
-| user | OneToOne | User profile |
-| department | FK | Department |
-| role | FK | Role |
-| reporting_manager | FK | Self-reference (manager) |
-| date_of_joining | Date | Join date |
-| status | Enum | ACTIVE, INACTIVE, ON_LEAVE, TERMINATED |
-| profile_image | Image | Profile photo |
+**Windows:**
+```bash
+venv\Scripts\activate
+```
 
-#### 5. Attendance
-| Field | Type | Description |
-|-------|------|-------------|
-| employee | FK | Employee |
-| date | Date | Attendance date |
-| check_in | DateTime | Check in time |
-| check_out | DateTime | Check out time |
-| check_in_photo | Image | Check in photo (face capture) |
-| check_out_photo | Image | Check out photo (face capture) |
-| status | Enum | PRESENT, ABSENT, LATE, ON_LEAVE |
+### Step 4: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-#### 6. WorkLog
-| Field | Type | Description |
-|-------|------|-------------|
-| employee | FK | Employee |
-| date | Date | Work date |
-| project | Char | Project name |
-| feature | Char | Feature/task |
-| category | Enum | DEVELOPMENT, MEETING, etc. |
-| work_description | Text | Work description |
-| duration | Duration | Work duration |
-| work_mode | Enum | OFFICE, REMOTE, HYBRID |
+### Step 5: Run Migrations
+```bash
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
 
-#### 7. Event
-| Field | Type | Description |
-|-------|------|-------------|
-| title | Char | Event title |
-| description | Text | Event description |
-| event_type | Enum | MEETING, TRAINING, etc. |
-| location | Char | Event location |
-| meeting_link | URL | Meeting link (Zoom, Google Meet) |
-| start_datetime | DateTime | Start time |
-| end_datetime | DateTime | End time |
-| status | Enum | SCHEDULED, IN_PROGRESS, COMPLETED |
-| created_by | FK | User who created |
+### Step 6: Seed Initial Data (Optional)
+```bash
+python3 manage.py seed_data
+```
 
-#### 8. LeaveRequest
-| Field | Type | Description |
-|-------|------|-------------|
-| employee | FK | Employee |
-| leave_type | Enum | ANNUAL, SICK, etc. |
-| start_date | Date | Start date |
-| end_date | End date |
-| reason | Text | Reason |
-| status | Enum | PENDING, APPROVED, REJECTED |
+---
 
-#### 9. Announcement
-| Field | Type | Description |
-|-------|------|-------------|
-| title | Char | Announcement title |
-| content | Text | Content |
-| priority | Enum | LOW, NORMAL, HIGH, URGENT |
-| created_by | FK | User |
-| created_at | DateTime | Created time |
+## Running the Server
 
-#### 10. Project
-| Field | Type | Description |
-|-------|------|-------------|
-| name | Char | Project name |
-| description | Text | Description |
-| team | FK | Department/Team |
-| status | Enum | PLANNING, IN_PROGRESS, etc. |
-| progress | Integer | Progress percentage |
-| start_date | Date | Start date |
-| end_date | Date | End date |
+### Development Server
+```bash
+python3 manage.py runserver
+```
 
-#### 11. OrganizationSettings
-| Field | Type | Description |
-|-------|------|-------------|
-| organization_name | Char | Organization name |
-| logo | Image | Logo image |
-| favicon | Image | Favicon |
+### Access the Application
+| Interface | URL |
+|----------|-----|
+| Web UI | http://127.0.0.1:8000/ |
+| Admin Panel | http://127.0.0.1:8000/admin/ |
+| API | http://127.0.0.1:8000/api/ |
+
+### Running on Network
+To make accessible on local network:
+```bash
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+Access via: `http://YOUR_LOCAL_IP:8000`
+
+---
+
+## Android App
+
+### APK Location
+The pre-built Android APK is available at:
+```
+media/apk/IT_Tech_Org_Release.apk
+```
+
+### Android App Features
+- ✅ Works on any WiFi or mobile network
+- ✅ Downloads and installs APK locally
+- ✅ Shows organization info when offline
+- ✅ Connect to server automatically when available
+- ✅ Network detection (WiFi/Mobile data)
+
+### Building New APK
+If you modify the Android code, rebuild using:
+```bash
+cd android
+./gradlew assembleDebug
+```
+
+The APK will be at: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+---
+
+## Default Credentials
+
+| Role | Username | Password |
+|------|----------|----------|
+| Admin | admin | admin123 |
+
+**Note:** Change the admin password after first login for security.
 
 ---
 
@@ -218,10 +282,11 @@ IT Tech Organisation Management System/
 
 ---
 
-## UI Routes
+## Web Routes
 
 | Endpoint | Description |
 |----------|-------------|
+| `/` | Home/Download page |
 | `/login/` | Login page |
 | `/logout/` | Logout |
 | `/dashboard/` | Main dashboard |
@@ -233,143 +298,120 @@ IT Tech Organisation Management System/
 | `/reports/` | Reports & analytics |
 | `/chatbot/` | Organization ChatBot |
 | `/admin/` | Admin panel |
+| `/about/` | About page |
+| `/contact/` | Contact page |
+| `/terms/` | Terms of Service |
+| `/privacy/` | Privacy Policy |
 
 ---
 
-## Getting Started
+## Organization Levels
 
-### 1. Clone and Setup
-```bash
-git clone <repository-url>
-cd "IT Tech Organisation Management System"
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+The system supports 6 organizational levels:
 
-### 2. Run Migrations
-```bash
-python3 manage.py makemigrations
-python3 manage.py migrate
-```
-
-### 3. Seed Initial Data
-```bash
-python3 manage.py seed_data
-```
-
-### 4. Run Server
-```bash
-python3 manage.py runserver
-```
-
-### 5. Access
-- **Web UI**: http://127.0.0.1:8000/
-- **Admin**: http://127.0.0.1:8000/admin/
-- **API**: http://127.0.0.1:8000/api/
+1. **Executive Leadership** - CEO, CTO, CIO, CHRO
+2. **Upper Management** - VP, Directors
+3. **Middle Management** - Managers
+4. **Senior Professionals** - Senior Engineers
+5. **Junior Professionals** - Engineers
+6. **Support Functions** - HR, Finance, IT Support
 
 ---
 
-## Default Login Credentials
+## Database Models
 
-| Role | Username | Password |
-|------|----------|----------|
-| Admin |  |  |
+### 1. CustomUser
+- id (UUID)
+- username
+- email
+- user_type (ADMIN, EXECUTIVE, MANAGER, HR, EMPLOYEE)
+- first_name, last_name
+
+### 2. Department
+- id (UUID)
+- name, code
+- description
+- parent_department (self-referential)
+
+### 3. Role
+- id (UUID)
+- title
+- level (1-6)
+- department
+
+### 4. Employee
+- id (UUID)
+- employee_id
+- user (OneToOne)
+- department
+- role
+- reporting_manager
+- date_of_joining
+- status (ACTIVE, INACTIVE, ON_LEAVE, TERMINATED)
+- profile_image
+
+### 5. Attendance
+- employee
+- date
+- check_in, check_out
+- check_in_photo, check_out_photo
+- status (PRESENT, ABSENT, LATE, ON_LEAVE)
+
+### 6. WorkLog
+- employee
+- date
+- project, feature
+- category
+- work_description
+- duration
+- work_mode (OFFICE, REMOTE, HYBRID)
+
+### 7. Event
+- title, description
+- event_type (MEETING, TRAINING, HOLIDAY)
+- location
+- meeting_link
+- start_datetime, end_datetime
+- status
 
 ---
 
-## Features Implemented
+## Environment Variables
 
-### ✅ Core Features
-- [x] Django MVT Architecture
-- [x] Role-based authentication (ADMIN, EXECUTIVE, MANAGER, HR, EMPLOYEE)
-- [x] Employee management (CRUD)
-- [x] Department hierarchy
-- [x] Role management with 6 levels
-- [x] Manager-subordinate relationships
-- [x] JWT Authentication
-- [x] REST APIs with DRF
+Create a `.env` file in the root directory:
 
-### ✅ Dashboard Features
-- [x] Executive dashboard with stats widgets
-- [x] Orange (#FF6B00) + Dark Blue (#0B1F3A) theme
-- [x] Stats ticker
-- [x] Quick actions buttons
-- [x] Interactive charts (Chart.js)
-- [x] Mini stat cards
-- [x] Recent activity feed
-- [x] Notifications & alerts
-- [x] Calendar widget
-- [x] Task list
-- [x] Skills matrix
-- [x] Training status
-- [x] Top performers
-- [x] Upcoming events
-- [x] Leave requests
-- [x] Announcements
-- [x] Project status
-- [x] Mobile-responsive sidebar
+```env
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+OPENAI_API_KEY=your-openai-api-key  # Optional - for LLM ChatBot
+```
 
-### ✅ Organization Management
-- [x] Organization Settings (name, logo, favicon)
-- [x] Dynamic organization name updates everywhere
-- [x] Custom admin panel
+---
 
-### ✅ ChatBot Features
-- [x] Organisation ChatBot with detailed responses
-- [x] Advanced keyword matching
-- [x] Security - blocks sensitive info requests
-- [x] Casual acknowledgment handling
-- [x] Floating ChatBot widget in sidebar
-- [x] ChatBot accessible from both main app and Admin Panel
-- [x] Conversation history storage
-- [x] LLM Integration support (OpenAI GPT)
+## Troubleshooting
 
-### ✅ Schedule & Reports
-- [x] Schedule page (`/schedule/`)
-- [x] Upcoming events with meeting links
-- [x] Pending leave requests
-- [x] Reports page (`/reports/`)
-- [x] Employee statistics
-- [x] Work logs table
-- [x] Meeting records (upcoming & past)
-- [x] Meeting statistics
+### Database Issues
+If you encounter database errors:
+```bash
+python3 manage.py migrate --run-syncdb
+```
 
-### ✅ Meetings/Events
-- [x] Meeting link field (Zoom, Google Meet URLs)
-- [x] Event types (Meeting, Training, Holiday, etc.)
-- [x] Auto status based on time (Scheduled, In Progress, Completed)
-- [x] Clickable meeting links
-- [x] Past meetings tracking in Reports
+### Static Files Not Loading
+```bash
+python3 manage.py collectstatic
+```
 
-### ✅ Attendance & Work Log
-- [x] Check In with face capture
-- [x] Check Out with face capture
-- [x] Camera access for photo capture
-- [x] Photo preview before submitting
-- [x] Retake photo option
-- [x] 3-step work log workflow:
-  - Step 1: Fill work details
-  - Step 2: Capture photo & Check Out
-  - Step 3: Save (enables only when both complete)
-- [x] Attendance photo display
-- [x] Recent work logs display
-- [x] Read-only photos in admin
+### Create Superuser
+```bash
+python3 manage.py createsuperuser
+```
 
-### ✅ UI/UX Features
-- [x] Professional dashboard layout
-- [x] Animated backgrounds
-- [x] Hover effects on cards
-- [x] Custom scrollbar
-- [x] Gradient stat cards with trends
-- [x] Chart animations
-- [x] Responsive design
-
-### ✅ Bug Fixes
-- [x] Fixed duplicate sidebar links
-- [x] URL namespace warning resolved
-- [x] Login error message in red
-- [x] ChatBot "ok" response improved
+### Check Server Status
+Make sure no other app is using port 8000:
+```bash
+lsof -i :8000
+```
 
 ---
 
@@ -382,19 +424,6 @@ python3 manage.py runserver
 
 ---
 
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-SECRET_KEY=your-secret-key
-DEBUG=True
-ALLOWED_HOSTS=*
-OPENAI_API_KEY=your-openai-api-key  # Optional - for LLM ChatBot
-```
-
----
-
 ## License
 
 MIT License
@@ -403,5 +432,15 @@ MIT License
 
 ## Author
 
-IT Tech Organisation Management System
+**IT Tech Organisation Management System**
+
 Built with Django + DRF + Bootstrap + Chart.js
+
+---
+
+## Support
+
+For issues and questions:
+- Check the documentation in `COMPLETE_SETUP.md`
+- Review the API documentation at `/api/`
+- Contact your system administrator
