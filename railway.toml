@@ -1,0 +1,20 @@
+[build]
+buildCommand = "pip install -r requirements.txt"
+startCommand = "gunicorn --bind 0.0.0.0:$PORT core.asgi:application"
+buildPack = "python"
+
+[runtime]
+version = "3.11"
+
+[deploy]
+region = "us"
+
+[[services]]
+name = "it-org-management"
+source = "./"
+
+[env]
+SECRET_KEY = "auto"
+DEBUG = "false"
+ALLOWED_HOSTS = "*.railway.app"
+DISABLE_COLLECTSTATIC = "1"

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download IT Tech Organisation Management System - Professional IT Organization Management App">
+    <meta name="theme-color" content="#FF6B00">
+    <title>Indica Software - IT Tech Organisation Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #FF6B00; --secondary: #0B1F3A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #0B1F3A; color: white; min-height: 100vh; }
+        .navbar { background: rgba(11, 31, 58, 0.95); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar-brand { display: flex; align-items: center; gap: 10px; }
+        .navbar-brand span { font-size: 1.5rem; font-weight: 700; color: white; }
+        .hero { padding: 150px 0 80px; text-align: center; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(255, 107, 0, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 107, 0, 0.15) 0%, transparent 50%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; }
+        .app-icon { width: 180px; height: 180px; border-radius: 40px; background: white; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(255, 107, 0, 0.4); }
+        .app-icon i { font-size: 5rem; color: var(--primary); }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 15px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.3rem; color: #aaa; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .download-btn { background: linear-gradient(135deg, #FF6B00, #FF8C33); color: white; padding: 18px 50px; font-size: 1.3rem; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 15px; transition: all 0.3s; box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4); }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 107, 0, 0.5); color: white; }
+        .version-info { margin-top: 20px; color: #aaa; font-size: 0.9rem; }
+        .security-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; color: #28a745; font-weight: 500; }
+        .app-meta { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .meta-item { text-align: center; color: #aaa; font-size: 0.85rem; }
+        .meta-item .value { color: white; font-weight: 600; font-size: 1rem; }
+        .features { padding: 80px 0; background: #0B1F3A; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .section-title h2 span { color: var(--primary); }
+        .section-title p { color: #aaa; }
+        .feature-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; text-align: center; transition: all 0.3s; height: 100%; }
+        .feature-card:hover { background: rgba(255, 107, 0, 0.1); border-color: var(--primary); transform: translateY(-5px); }
+        .feature-icon { width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(135deg, var(--primary), #FF8C33); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; color: white; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; }
+        .feature-card p { color: #aaa; font-size: 0.95rem; margin: 0; }
+        .info-section { padding: 80px 0; background: #0B1F3A; }
+        .detail-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .detail-item i { color: var(--primary); font-size: 1.3rem; }
+        .detail-item h4 { font-weight: 600; margin-bottom: 5px; }
+        .detail-item p { color: #aaa; font-size: 0.95rem; margin: 0; }
+        .download-section { padding: 80px 0; text-align: center; background: linear-gradient(135deg, rgba(255, 107, 0, 0.1), #0B1F3A); }
+        .download-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .download-section p { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
+        .store-badge { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 15px 30px; display: inline-flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; color: white; transition: all 0.3s; }
+        .store-badge:hover { background: rgba(255, 107, 0, 0.2); border-color: var(--primary); transform: translateY(-3px); }
+        .store-badge i { font-size: 2rem; }
+        .store-badge div { text-align: left; }
+        .store-badge .small { font-size: 0.75rem; color: #aaa; }
+        .store-badge .big { font-size: 1.1rem; font-weight: 600; }
+        footer { background: rgba(0, 0, 0, 0.3); padding: 40px 0; text-align: center; }
+        footer p { color: #666; font-size: 0.9rem; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 9999; align-items: center; justify-content: center; }
+        .modal.show { display: flex; }
+        .modal-content { background: linear-gradient(135deg, #0B1F3A, #1a2d4a); border-radius: 20px; padding: 30px; max-width: 400px; width: 90%; text-align: center; }
+        .modal-content h3 { color: var(--primary); margin-bottom: 25px; font-size: 1.5rem; }
+        .modal-btn { display: block; width: 100%; padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: 600; cursor: pointer; border: none; }
+        .modal-btn.android { background: #3DDC84; color: #000; }
+        .modal-btn.ios { background: #007AFF; color: white; }
+        .modal-btn.cancel { background: transparent; border: 1px solid #666; color: #aaa; }
+        .modal-btn i { margin-right: 10px; }
+        .instructions { text-align: left; background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 15px; margin: 15px 0; font-size: 0.9rem; color: #ccc; }
+        .instructions p { margin-bottom: 10px; }
+        @media (max-width: 991px) {
+            .hero { padding: 120px 15px 60px; }
+            .hero h1 { font-size: 1.8rem; }
+            .app-icon { width: 120px; height: 120px; }
+            .download-btn { padding: 15px 30px; font-size: 1.1rem; }
+            .section-title h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <i class="fas fa-building" style="font-size: 2rem; color: var(--primary);"></i>
+                <span>Indica Software</span>
+            </a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="app-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h1>Indica Software<br><span>Professional IT Organization Management System</span></h1>
+                <p>Professional IT Organization Management System with comprehensive features for managing organizational structure, employees, roles, departments, attendance, work logs, events, and more.</p>
+                <button class="download-btn" onclick="showDownloadModal()">
+                    <i class="fas fa-download"></i> Download App
+                </button>
+                <div class="version-info">Version 1.0.0 | Updated: April 2026</div>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i> Security Verified
+                </div>
+                <div class="app-meta">
+                    <div class="meta-item"><div class="value">100%</div><div>Free</div></div>
+                    <div class="meta-item"><div class="value">No Login</div><div>Required</div></div>
+                    <div class="meta-item"><div class="value">5MB</div><div>APK Size</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Amazing <span>Features</span></h2>
+                <p style="color: #aaa;">Everything you need to manage your organization efficiently</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-users"></i></div><h3>Employee Management</h3><p>Complete employee CRUD operations</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-building"></i></div><h3>Department Hierarchy</h3><p>Organize departments</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-user-tie"></i></div><h3>Role Management</h3><p>6 organizational levels</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Attendance Tracking</h3><p>Check in/out with photo</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-clipboard-list"></i></div><h3>Work Logs</h3><p>Daily work logging</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-calendar-alt"></i></div><h3>Events & Schedule</h3><p>Manage meetings</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Dashboard Analytics</h3><p>Interactive charts</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>AI ChatBot</h3><p>Organization AI</p></div></div>
+                <div class="col-md-4 col-sm-6"><div class="feature-card"><div class="feature-icon"><i class="fas fa-sitemap"></i></div><h3>Org Chart</h3><p>Visual hierarchy</p></div></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="info-section" id="information">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title"><h2>App <span>Information</span></h2>
+                    <div class="detail-item"><i class="fas fa-check-circle"></i><div><h4>Easy to Use</h4><p>Simple interface, no training required</p></div></div>
+                    <div class="detail-item"><i class="fas fa-check-circle"></i><div><h4>Secure Data</h4><p>Industry-standard security</p></div></div>
+                    <div class="detail-item"><i class="fas fa-check-circle"></i><div><h4>Works Offline</h4><p>Core features work without internet</p></div></div>
+                    <div class="detail-item"><i class="fas fa-check-circle"></i><div><h4>Regular Updates</h4><p>Continuous improvements</p></div></div>
+                    <div class="detail-item"><i class="fas fa-check-circle"></i><div><h4>Native App</h4><p>Works like installed app</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="download-section" id="download">
+        <div class="container">
+            <h2>Download <span style="color: var(--primary);">IT Tech Organisation Management System App</span></h2>
+            <p>Get the app for your device</p>
+            <button class="download-btn" onclick="showDownloadModal()">
+                <i class="fas fa-download"></i> Download Now
+            </button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Indica Software. All rights reserved.</p>
+            <div style="margin-top: 15px;">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <h3><i class="fas fa-download"></i> Select Platform</h3>
+            <button class="modal-btn android" onclick="downloadAndroid()"><i class="fab fa-android"></i> Android (APK)</button>
+            <button class="modal-btn ios" onclick="showIOSInstructions()"><i class="fab fa-apple"></i> iOS (iPhone/iPad)</button>
+            <button class="modal-btn cancel" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="iosModal">
+        <div class="modal-content">
+            <h3><i class="fab fa-apple"></i> iOS Installation</h3>
+            <div class="instructions">
+                <p><strong>Step 1:</strong> Open Safari</p>
+                <p><strong>Step 2:</strong> Visit this website</p>
+                <p><strong>Step 3:</strong> Tap Share button</p>
+                <p><strong>Step 4:</strong> Tap "Add to Home Screen"</p>
+                <p><strong>Step 5:</strong> Tap "Add"</p>
+            </div>
+            <button class="modal-btn cancel" onclick="closeModal()">Got It!</button>
+        </div>
+    </div>
+    
+    <script>
+        function showDownloadModal() { document.getElementById('downloadModal').classList.add('show'); }
+        function closeModal() { document.getElementById('downloadModal').classList.remove('show'); document.getElementById('iosModal').classList.remove('show'); }
+        function downloadAndroid() {
+            alert('APK download available on server version.\n\nFor full app with server access, use: http://YOUR_SERVER_IP:8000');
+            closeModal();
+        }
+        function showIOSInstructions() { document.getElementById('downloadModal').classList.remove('show'); document.getElementById('iosModal').classList.add('show'); }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) closeModal(); }
+    </script>
+</body>
+</html>
